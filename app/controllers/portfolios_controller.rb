@@ -11,6 +11,10 @@ class PortfoliosController < ApplicationController
     @portfolio_item = Portfolio.find(params.expect(:id))
   end
 
+  def show
+    @portfolio_item = Portfolio.find(params.expect(:id))
+  end
+
   def create
     @portfolio_item = Portfolio.new(params.expect(portfolio: [ :title, :subtitle, :body ]))
 
@@ -35,6 +39,19 @@ class PortfoliosController < ApplicationController
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @portfolio_item.errors, status: :unprocessable_entity }
       end
+    end
+  end
+
+  def destroy
+    # Looks up the portfolio item by id
+    @portfolio_item = Portfolio.find(params.expect(:id))
+
+    # Destroys/deletes the found portfolio item
+    @portfolio_item.destroy!
+
+    # Redirects to index with success message
+    respond_to do |format|
+      format.html { redirect_to portfolios_url, status: :see_other, notice: "Portfolio item was successfully destroyed." }
     end
   end
 end
