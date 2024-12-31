@@ -10,6 +10,9 @@
     <p>
       <%= link_to "Show this blog", blog %>
     </p>
+    <p>
+    <%= link_to blog.posts_status, toggle_posts_status_blog_url(blog) %>
+    </p>
   <% end %>
 </div>
 

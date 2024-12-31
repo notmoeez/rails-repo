@@ -1,5 +1,5 @@
 class BlogsController < ApplicationController
-  before_action :set_blog, only: %i[ show edit update destroy ]
+  before_action :set_blog, only: %i[ show edit update destroy toggle_posts_status]
 
   # GET /blogs or /blogs.json
   def index
@@ -55,6 +55,12 @@ class BlogsController < ApplicationController
       format.html { redirect_to blogs_path, status: :see_other, notice: "Blog was successfully destroyed." }
       format.json { head :no_content }
     end
+  end
+
+  def toggle_posts_status
+    # binding.break
+    @blog.post_published? ? @blog.post_unpublished! : @blog.post_published!
+    redirect_to blogs_path, notice: "Blog status was successfully updated."
   end
 
   private
