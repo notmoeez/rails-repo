@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   resources :portfolios, except: [ :show ]
+  get "react", to: "portfolios#react"
   get "portfolio/:id", to: "portfolios#show", as: "show_portfolio"
   # get "pages/home"
   # get "pages/about"

@@ -1,0 +1,12 @@
+<h1>React Portfolio Items</h1>
+<p><%= notice%></p>
+<%= link_to "Create new item", new_portfolio_path%>
+
+<% @react_portfolio_items.each do |react_portfolio_item| %>
+    <h2><%= link_to react_portfolio_item.title,  show_portfolio_path(react_portfolio_item)%></h2>
+    <h3><%= react_portfolio_item.subtitle %></h3>
+    <p><%= react_portfolio_item.body %></p>
+    <%= image_tag react_portfolio_item.thumb_image unless react_portfolio_item.thumb_image.nil?%>
+    <%= link_to "Show", show_portfolio_path(react_portfolio_item)%>
+    <%= link_to "Edit", edit_portfolio_path(react_portfolio_item)%>
+<% end %>

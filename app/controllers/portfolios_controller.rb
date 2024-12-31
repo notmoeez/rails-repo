@@ -1,6 +1,17 @@
 class PortfoliosController < ApplicationController
   def index
     @portfolio_items = Portfolio.all
+    # @portfolio_items = Portfolio.where(subtitle: "Ruby on Rails")
+    # @portfolio_items = Portfolio.search_by_subtopic("Ruby on Rails")
+    # @portfolio_items = Portfolio.ruby_on_rails
+  end
+
+  def react
+    @react_portfolio_items = Portfolio.search_by_subtopic("React")
+  end
+
+  def ruby_on_rails
+    @ror_portfolio_items = Portfolio.ruby_on_rails
   end
 
   def new
