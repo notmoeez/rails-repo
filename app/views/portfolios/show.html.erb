@@ -2,4 +2,5 @@
 <h1><%= @portfolio_item.title %></h1>
 <em><%= @portfolio_item.subtitle %></em>
 <p><%= @portfolio_item.body %></p>
+<%= link_to "Back", portfolios_path %>
 <%= button_to "Destroy this portfolio item", @portfolio_item, method: :delete%>
