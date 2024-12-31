@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2024_12_30_145446) do
+ActiveRecord::Schema[8.0].define(version: 2024_12_31_075723) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
 
@@ -20,7 +20,7 @@ ActiveRecord::Schema[8.0].define(version: 2024_12_30_145446) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "slug"
-    # t.integer "status", default: 0
+    t.integer "posts_status", default: 0
     t.index ["slug"], name: "index_blogs_on_slug", unique: true
   end
 
