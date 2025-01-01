@@ -60,3 +60,4 @@ end
 
 # Use friendly routes
 gem "friendly_id", "~> 5.1"
+gem "devise", "~> 4.9", ">= 4.9.4"
