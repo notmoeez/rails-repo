@@ -32,7 +32,9 @@ class PortfoliosController < ApplicationController
 
   def create
     # @portfolio_item = Portfolio.new(params.expect(portfolio: [ :title, :subtitle, :body, technologies_attributes: [ :name ] ]))
-    @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body, technologies_attributes: [ :name ]))
+    # @portfolio_item = Portfolio.new(params.require(:portfolio).permit(:title, :subtitle, :body, technologies_attributes: [ :name ]))
+    @portfolio_item = Portfolio.new(portfolio_params)
+
     # binding.break
 
     respond_to do |format|
@@ -49,7 +51,7 @@ class PortfoliosController < ApplicationController
   def update
     @portfolio_item = Portfolio.find(params.expect(:id))
     respond_to do |format|
-      if @portfolio_item.update(params.expect(portfolio: [ :title, :subtitle, :body ]))
+      if @portfolio_item.update(portfolio_params)
         format.html { redirect_to portfolios_url, notice: "Portfolio Item was successfully updated." }
         format.json { render :show, status: :ok, location: @portfolio_item }
       else
@@ -70,5 +72,14 @@ class PortfoliosController < ApplicationController
     respond_to do |format|
       format.html { redirect_to portfolios_url, status: :see_other, notice: "Portfolio item was successfully destroyed." }
     end
+  end
+
+  private
+
+  def portfolio_params
+    params.require(:portfolio).permit(:title,
+                                      :subtitle,
+                                      :body,
+                                      technologies_attributes: [ :name ])
   end
 end
