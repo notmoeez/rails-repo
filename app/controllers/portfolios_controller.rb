@@ -4,6 +4,7 @@ class PortfoliosController < ApplicationController
     # @portfolio_items = Portfolio.where(subtitle: "Ruby on Rails")
     # @portfolio_items = Portfolio.search_by_subtopic("Ruby on Rails")
     # @portfolio_items = Portfolio.ruby_on_rails
+    @page_title = "Devcamp Portfolio | My Portfolio Items"
   end
 
   def react
@@ -28,6 +29,7 @@ class PortfoliosController < ApplicationController
 
   def show
     @portfolio_item = Portfolio.find(params.expect(:id))
+    @page_title = @portfolio_item.title
   end
 
   def create
