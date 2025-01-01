@@ -17,7 +17,6 @@
   <div>
     <%= form.fields_for :technologies do |technology_form| %>
     <div>
-      <%= puts "nested attr hit" %>
       <%= technology_form.label :name %>
       <%= technology_form.text_field :name %>
     </div>
