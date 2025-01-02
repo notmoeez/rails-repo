@@ -1,0 +1,6 @@
+<h2><%= link_to portfolio_item.title,  show_portfolio_path(portfolio_item)%></h2>
+<h3><%= portfolio_item.subtitle %></h3>
+<p><%= portfolio_item.body %></p>
+<%= image_tag portfolio_item.thumb_image unless portfolio_item.thumb_image.nil?%>
+<%= link_to "Show", show_portfolio_path(portfolio_item)%>
+<%= link_to "Edit", edit_portfolio_path(portfolio_item)%>
