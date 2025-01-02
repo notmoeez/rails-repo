@@ -26,6 +26,7 @@ class PortfoliosController < ApplicationController
 
   def edit
     @portfolio_item = Portfolio.find(params.expect(:id))
+    # @portfolio_item.technologies.build
   end
 
   def show
