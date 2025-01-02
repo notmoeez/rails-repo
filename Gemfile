@@ -66,3 +66,9 @@ gem "devise", "~> 4.9", ">= 4.9.4"
 
 # Use byebug debugging
 gem "byebug", "~> 11.1", ">= 11.1.3"
+
+# For Authorization
+gem "petergate", "~> 1.6", ">= 1.6.3"
+
+# Bootstrap styling
+# gem "bootstrap", "~> 5.3.3"
