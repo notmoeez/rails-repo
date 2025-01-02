@@ -34,8 +34,6 @@
 <hr>
 <%= render "shared/nav", location: 'bottom' %>
 <hr>
-    <% if session[:source] %>
-    Thanks for visiting through <%= session[:source] %>
-    <% end %>
+  <%= source_helper("Blogs") %>
   </body>
 </html>

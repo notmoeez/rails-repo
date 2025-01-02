@@ -38,8 +38,6 @@
     <%= yield %>
 
 <hr>
-    <% if session[:source] %>
-    Thanks for visiting through <%= session[:source] %>
-    <% end %>
+  <%= source_helper("Portfolios") %>
   </body>
 </html>
