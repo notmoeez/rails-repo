@@ -1,4 +1,5 @@
 class PortfoliosController < ApplicationController
+  before_action :set_portfolio_item, only: [ :edit, :show, :update, :destroy ]
   layout "portfolio"
   def index
     @portfolio_items = Portfolio.all
@@ -25,12 +26,10 @@ class PortfoliosController < ApplicationController
   end
 
   def edit
-    @portfolio_item = Portfolio.find(params.expect(:id))
     # @portfolio_item.technologies.build
   end
 
   def show
-    @portfolio_item = Portfolio.find(params.expect(:id))
     @page_title = @portfolio_item.title
   end
 
@@ -53,7 +52,6 @@ class PortfoliosController < ApplicationController
   end
 
   def update
-    @portfolio_item = Portfolio.find(params.expect(:id))
     respond_to do |format|
       if @portfolio_item.update(portfolio_params)
         format.html { redirect_to portfolios_url, notice: "Portfolio Item was successfully updated." }
@@ -66,9 +64,6 @@ class PortfoliosController < ApplicationController
   end
 
   def destroy
-    # Looks up the portfolio item by id
-    @portfolio_item = Portfolio.find(params.expect(:id))
-
     # Destroys/deletes the found portfolio item
     @portfolio_item.destroy!
 
@@ -85,5 +80,9 @@ class PortfoliosController < ApplicationController
                                       :subtitle,
                                       :body,
                                       technologies_attributes: [ :name ])
+  end
+
+  def set_portfolio_item
+    @portfolio_item = Portfolio.find(params.expect(:id))
   end
 end

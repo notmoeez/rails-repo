@@ -60,4 +60,9 @@ end
 
 # Use friendly routes
 gem "friendly_id", "~> 5.1"
+
+# Use devise authentication
 gem "devise", "~> 4.9", ">= 4.9.4"
+
+# Use byebug debugging
+gem "byebug", "~> 11.1", ">= 11.1.3"
