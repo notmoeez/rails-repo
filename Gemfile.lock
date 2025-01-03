@@ -189,7 +189,7 @@ GEM
     parser (3.3.6.0)
       ast (~> 2.4.1)
       racc
-    petergate (1.9.1)
+    petergate (3.0.0)
       activerecord (> 4.0.0)
     pg (1.5.9)
     propshaft (1.1.0)
@@ -356,7 +356,7 @@ DEPENDENCIES
   importmap-rails
   jbuilder
   kamal
-  petergate (~> 1.6, >= 1.6.3)
+  petergate (~> 3.0)
   pg (~> 1.1)
   propshaft
   puma (>= 5.0)
